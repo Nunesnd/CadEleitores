@@ -14,6 +14,11 @@ namespace CadEleitores.Controllers
             return View();
         }
 
+        public IActionResult CriaEndereco()
+        {
+            return View();
+        }
+
         public IActionResult Editar()
         {
             return View();
