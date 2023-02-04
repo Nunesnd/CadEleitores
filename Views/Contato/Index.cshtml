@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<PessoaModel>
 @{
     ViewData["Title"] = "Contatos";
 }
@@ -10,64 +8,43 @@
     <h1>Listagem de contatos</h1>
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-
         <a class="btn btn-primary" role="button" asp-controller="Contato" asp-action="Criar">Novo contato</a>
-
     </div>
 
     <br />
-    
+
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Fone/Zap</th>
-                <th scope="col">Email</th>
+                <th scope="col">Sexo</th>
+                <th scope="col">Nascimento</th>
+                <th scope="col">Filhos</th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>João da Silva</td>
-                <td>(11) 98765-0987</td>
-                <td>joaodasilva@mail.com</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a role="button" class="btn btn-primary" asp-controller="Contato" asp-action="Editar">Editar</a>
-                        <a role="button" class="btn btn-info" asp-controller="Contato" asp-action="Detalhes">Detalhes</a>
-                        <a role="button" class="btn btn-danger" asp-controller="Contato" asp-action="ApagarConfirma">Apagar</a>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Maria de Souza</td>
-                <td>(22) 91234-0987</td>
-                <td>mariazinha@mail.com</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a role="button" class="btn btn-primary" asp-controller="Contato" asp-action="Editar">Editar</a>
-                        <a role="button" class="btn btn-info" asp-controller="Contato" asp-action="Detalhes">Detalhes</a>
-                        <a role="button" class="btn btn-danger" asp-controller="Contato" asp-action="ApagarConfirma">Apagar</a>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Joaquim dos Santos</td>
-                <td>(33) 94321-0987</td>
-                <td>joaquim@mail.com</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a role="button" class="btn btn-primary" asp-controller="Contato" asp-action="Editar">Editar</a>
-                        <a role="button" class="btn btn-info" asp-controller="Contato" asp-action="Detalhes">Detalhes</a>
-                        <a role="button" class="btn btn-danger" asp-controller="Contato" asp-action="ApagarConfirma">Apagar</a>
-                    </div>
-                </td>
-            </tr>
-
+            @if (Model != null && Model.Any())
+            {
+                foreach (PessoaModel pessoa in Model)
+                {
+                    <tr>
+                        <th scope="row">@pessoa.Id</th>
+                        <td>@pessoa.Nome</td>
+                        <td>@pessoa.Sexo</td>
+                        <td>@pessoa.Nascimento</td>
+                        <td>@pessoa.Filhos</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-route-id="@pessoa.Id" asp-controller="Contato" asp-action="Editar">Editar</a>
+                                <a role="button" class="btn btn-info" asp-route-id="@pessoa.Id"  asp-controller="Contato" asp-action="Detalhes">Detalhes</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@pessoa.Id"    asp-controller="Contato" asp-action="ApagarConfirma">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
         </tbody>
     </table>
 </div>

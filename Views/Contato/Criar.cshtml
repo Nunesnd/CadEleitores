@@ -1,4 +1,5 @@
-﻿@{
+﻿@model PessoaModel
+@{
     ViewData["Title"] = "Cadastrar contato";
 }
 
@@ -6,47 +7,72 @@
 
 <br />
 
-<form>
+<form asp-controller="Contato" asp-action="Criar" method="post">
 
     <div class="row g-3" method="get" action=".">
 
         <div class="col-sm-6">
-            <input type="text" class="form-control" placeholder="Nome completo" id="nome">
+            <input asp-for="Nome" type="text" class="form-control" placeholder="Nome completo" id="nome">
         </div>
 
         <div class="col-sm-2">
-            <input type="text" class="form-control" placeholder="Pseudonimo" id="pseudonimo">
+            <input asp-for="Pseudonimo" type="text" class="form-control" placeholder="Pseudonimo" id="pseudonimo">
         </div>
 
         <div class="col-sm-2">
-            <input type="text" class="form-control" placeholder="CPF" id="cpf">
+            <input asp-for="Cpf" type="text" class="form-control" placeholder="CPF" id="cpf">
         </div>
 
     </div>
-    
+
     <br />
 
     <div class="row g-3" method="get" action=".">
+        
+        <!--
+        <div class="form-check">
+            <input asp-for="Sexo" class="form-check-input" type="radio" name="exampleRadios" id="sexo" value="Masculino">
+            <label class="form-check-label" for="sexo">
+                Masculino
+            </label>
+        </div>
 
-        <div class="col-sm-2">
-            <select class="form-select">
+        <div class="form-check">
+            <input asp-for="Sexo" class="form-check-input" type="radio" name="exampleRadios" id="sexo" value="Feminino">
+            <label class="form-check-label" for="sexo">
+                Feminino
+            </label>
+        </div>
+        -->
+
+        <div class="col-sm-2" id="sexo">
+            <select asp-for="Sexo" class="form-select">
                 <option selected>Sexo</option>
-                <option value="1">Masculino</option>
-                <option value="2">Feminino</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
             </select>
         </div>
 
         <div class="col-sm-2">
-            <input type="text" class="form-control" placeholder="Nascimento" id="nascimento">
+            <input asp-for="Nascimento" type="text" class="form-control" placeholder="Nascimento" id="nascimento">
         </div>
 
-        <div class="col-sm-2">
-            <select class="form-select">
+        <div class="col-sm-2" id="filhos">
+            <select asp-for="Filhos" class="form-select">
                 <option selected>Tem filhos?</option>
-                <option value="1">Não</option>
-                <option value="2">Sim</option>
+                <option value="Não">Não</option>
+                <option value="Sim">Sim</option>
             </select>
         </div>
+
+        <!--
+        <div class="form-check form-check-inline">
+            <input asp-for="Filhos" class="form-check-input" type="checkbox" id="filhos" value="Sim">
+            <label class="form-check-label">Filhos</label>
+        </div>
+        
+        -->
+
 
         <div class="col-sm-3">
             <input type="text" class="form-control" placeholder="Profissão" id="profissao">
@@ -57,7 +83,7 @@
     <br />
 
     <div class="d-grid gap-2 col-6 mx-auto">
-        <button type="submit" class="btn btn-primary btn-block" asp-controller="Contato" asp-action="CriaEndereco">Adicionar</button>
+        <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
         <a class="btn btn-secondary btn-block" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>
     </div>
 

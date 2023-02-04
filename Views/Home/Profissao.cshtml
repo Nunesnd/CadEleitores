@@ -1,0 +1,30 @@
+﻿@model ProfissaoModel
+@{
+    ViewData["Title"] = "Cadastrar Profissão";
+}
+<div class="text-center">
+    <H1>Cadastrar nova profissão</H1>
+
+    <br />
+
+    <form asp-controller="Home" asp-action="Profissao" method="post">
+
+
+        <div class="row g-3" method="get" action=".">
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <input asp-for="NomeProfissao" type="text" class="form-control" placeholder="Nome da profissão" id="nomeProfissao">
+            </div>
+
+        </div>
+
+        <br />
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+            <a class="btn btn-secondary btn-block" asp-controller="Home" asp-action="ProfissaoLista" role="button">Voltar</a>
+        </div>
+
+    </form>
+
+</div>
