@@ -7,9 +7,11 @@ namespace CadEleitores.Controllers
     public class ContatoController : Controller
     {
         private readonly IContatoRepositorio _contatoRepositorio;
-        public ContatoController(IContatoRepositorio contatoRepositorio)
+        private readonly IEnderecoRepositorio _enderecoRepositorio;
+        public ContatoController(IContatoRepositorio contatoRepositorio, IEnderecoRepositorio enderecoRepositorio)
         {
             _contatoRepositorio = contatoRepositorio;
+            _enderecoRepositorio = enderecoRepositorio;
         }
         public IActionResult Index()
         {
@@ -47,5 +49,14 @@ namespace CadEleitores.Controllers
             _contatoRepositorio.Adicionar(pessoa);
             return RedirectToAction("CriaEndereco");
         }
+
+
+        [HttpPost]
+        public IActionResult CriaEndereco(EnderecoModel endereco)
+        {
+            _enderecoRepositorio.Adicionar(endereco);
+            return RedirectToAction("Index");
+        }
+
     }
 }

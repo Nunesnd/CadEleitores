@@ -11,6 +11,7 @@ builder.Services.AddDbContext<BancoContexto>
     (options => options.UseSqlServer("Data Source=DESKTOP-SBORRH9;Initial Catalog=BancoProducao;User ID=sa;Password=a1!b2@c3#"));
 builder.Services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
 builder.Services.AddScoped<IProfissaoRepositorio, ProfissaoRepositorio>();
+builder.Services.AddScoped<IEnderecoRepositorio, EnderecoRepositorio>();
 
 var app = builder.Build();
 

@@ -13,7 +13,7 @@ namespace CadEleitores.Data
         }
 
         public DbSet<PessoaModel> Pessoa { get; set; }
-
+        public DbSet<EnderecoModel> Endereco { get; set; }
         public DbSet<ProfissaoModel> Profissao { get; set; }
     }
 }

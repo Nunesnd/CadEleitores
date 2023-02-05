@@ -1,11 +1,65 @@
-﻿@*
+﻿@model EnderecoModel
+
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-        ViewData["Title"] = "Cadastrar endereco contato";
+    ViewData["Title"] = "Cadastrar endereco contato";
 }
 
 
 <h1>Novo contato - Endereço</h1>
 
 <br />
+
+<form asp-controller="Contato" asp-action="CriaEndereco" method="post">
+
+    <div class="row g-3" method="get" action=".">
+
+        <div class="col-sm-2">
+            <input asp-for="CEP" type="text" class="form-control" placeholder="CEP" id="cep">
+        </div>
+        
+    </div>
+
+    <br />
+    
+    <div class="row g-3" method="get" action=".">
+
+        <div class="col-sm-6">
+            <input asp-for="Logradouro" type="text" class="form-control" placeholder="Logradouro" id="nome">
+        </div>
+        
+        <div class="col-sm-2">
+            <input asp-for="Numero" type="text" class="form-control" placeholder="Número" id="nome">
+        </div>
+                
+        <div class="col-sm-4">
+            <input asp-for="Complemento" type="text" class="form-control" placeholder="Complemento" id="complemento">
+        </div>
+
+                
+        <div class="col-sm-4">
+            <input asp-for="Bairro" type="text" class="form-control" placeholder="Bairro" id="bairro">
+        </div>
+
+                
+        <div class="col-sm-3">
+            <input asp-for="Cidade" type="text" class="form-control" placeholder="Cidade" id="cidade">
+        </div>
+
+                
+        <div class="col-sm-2">
+            <input asp-for="UF" type="text" class="form-control" placeholder="UF" id="uf">
+        </div>
+        
+    </div>
+
+    <br />
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+        <a class="btn btn-secondary btn-block" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>
+    </div>
+
+</form>

@@ -8,5 +8,6 @@ namespace CadEleitores.Repositorio
         PessoaModel Adicionar(PessoaModel pessoa);
 
 
+
     }
 }
