@@ -17,7 +17,7 @@
     <div class="row g-3" method="get" action=".">
 
         <div class="col-sm-2">
-            <input asp-for="CEP" type="text" class="form-control" placeholder="CEP" id="cep">
+            <input asp-for="CEP" type="text" class="form-control" placeholder="CEP" name="cep" id="cep" size="10" onblur="pesquisacep(this.value);">
         </div>
         
     </div>
@@ -27,11 +27,13 @@
     <div class="row g-3" method="get" action=".">
 
         <div class="col-sm-6">
+           
             <input asp-for="Logradouro" type="text" class="form-control" placeholder="Logradouro" id="nome">
+
         </div>
         
         <div class="col-sm-2">
-            <input asp-for="Numero" type="text" class="form-control" placeholder="Número" id="nome">
+            <input asp-for="Numero" type="text" class="form-control" placeholder="Número" id="numero">
         </div>
                 
         <div class="col-sm-4">
@@ -40,17 +42,17 @@
 
                 
         <div class="col-sm-4">
-            <input asp-for="Bairro" type="text" class="form-control" placeholder="Bairro" id="bairro">
+            <input asp-for="Bairro" name="bairro" type="text" class="form-control" placeholder="Bairro" id="bairro">
         </div>
 
                 
         <div class="col-sm-3">
-            <input asp-for="Cidade" type="text" class="form-control" placeholder="Cidade" id="cidade">
+            <input asp-for="Cidade" name="cidade" type="text" class="form-control" placeholder="Cidade" id="cidade">
         </div>
 
                 
         <div class="col-sm-2">
-            <input asp-for="UF" type="text" class="form-control" placeholder="UF" id="uf">
+            <input asp-for="UF" name="uf" type="text" class="form-control" placeholder="UF" id="uf">
         </div>
         
     </div>
