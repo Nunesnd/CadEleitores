@@ -14,8 +14,9 @@ namespace CadEleitores.Controllers
         }
         public IActionResult Index()
         {
-            List<ProfissaoModel> profissao = _profissaoRepositorio.BuscarTodos();
-            return View(profissao);
+            //List<ProfissaoModel> profissao = _profissaoRepositorio.BuscarTodos();
+            //return View(profissao);
+            return View();
         }
 
         public IActionResult Profissao()
@@ -25,9 +26,9 @@ namespace CadEleitores.Controllers
 
         public IActionResult ProfissaoLista()
         {
-            //List<ProfissaoModel> profissao = _profissaoRepositorio.BuscarTodos();
-            //return View(profissao);
-            return View();
+            List<ProfissaoModel> profissao = _profissaoRepositorio.BuscarTodos();
+            return View(profissao);
+            //return View();
         }
 
         [HttpPost]
